@@ -1,0 +1,3 @@
+---
+JAVA_ARGSms: -Xms1g 
+JAVA_ARGSmx: -Xmx1g

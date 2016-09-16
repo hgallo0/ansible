@@ -1,0 +1,39 @@
+---
+- name: install ntp
+  yum:
+    name: ntp
+    state: present
+
+- name: check ntp service
+  raw: systemctl status ntpd
+  register: ntp_status
+  ignore_errors: yes
+
+- name: run ntp update
+  raw: ntpdate pool.ntp.org
+  when: ntp_status|failed
+
+- name: start service
+  service: 
+    name: ntpd
+    state: started
+    enabled: yes
+
+- name: install puppet repo from rpm
+  yum:
+    name: https://yum.puppetlabs.com/puppetlabs-release-pc1-el-7.noarch.rpm
+    state: present
+
+- name: install puppet server
+  yum:
+    name: puppetserver
+    state: present
+
+- name: add config file
+  template: src=puppetserver.j2 dest=/etc/sysconfig/puppetserver
+
+- name: start puppet service
+  service:
+    name: puppetserver
+    state: started
+    enabled: yes

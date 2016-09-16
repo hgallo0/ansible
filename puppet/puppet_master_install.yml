@@ -1,0 +1,6 @@
+---
+- hosts: puppet
+  user: root
+  
+  roles: 
+    - puppet
