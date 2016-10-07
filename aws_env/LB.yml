@@ -1,0 +1,9 @@
+---
+- name: create LB
+  hosts: localhost
+
+  vars_files:
+    - keypair.yml
+
+  roles:
+    - LB

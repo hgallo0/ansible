@@ -1,0 +1,15 @@
+---
+- name: start load balancer build
+  ignore_errors: yes   # known bug https://github.com/ansible/ansible-modules-core/pull/3124/files
+  ec2_elb_lb:
+    name: "{{ name }}"
+    scheme: internet-facing
+    state: present
+#    instance_ids: "{{ inst_ids }}" 
+    purge_instance_ids: true
+    region: "{{ reg }}"
+    subnets: "{{ sub }}"
+    listeners:
+      - protocol: http # options are http, https, ssl, tcp
+        load_balancer_port: "{{ lb_port }}"
+        instance_port: "{{ inst_port }}"

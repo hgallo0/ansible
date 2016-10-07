@@ -1,0 +1,10 @@
+---
+# These are examples, you must provide your own
+# dependent of you environment
+
+name: "shu-LB"
+inst_ids:  [ 'i-9d4c1f65', 'i-9b4c1f63', 'i-5e7320a6', 'i-324c1fca', 'i-034c1ffb' ]
+reg: us-east-1
+sub: subnet-2f064777
+lb_port: 80
+inst_port: 80
