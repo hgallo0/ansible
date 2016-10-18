@@ -1,0 +1,8 @@
+---
+- name: deploy ec2 instances 
+  hosts: localhost
+  vars_files:
+   - keypair.yml
+
+  roles:
+  - ec2-nodes
