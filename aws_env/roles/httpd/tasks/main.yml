@@ -1,0 +1,17 @@
+---
+- name: add apache software
+  yum: name=httpd state=present
+
+- name: load background image
+  copy: src=baddog.jpg dest=/var/www/html/baddog.jpg 
+
+- name: load config file
+  template: src=httpd.conf.js2 dest=/etc/httpd/conf/httpd.conf
+  notify:
+    - restart apache
+
+- name: load index page
+  template: src=index.html.js2 dest=/var/www/html/index.html
+
+- name: start service 
+  service: name=httpd state=started
