@@ -53,4 +53,4 @@ Henry Gallo
 
 How to run 
 -----------------
-ansible-playbook spinup_env.yml --extra-vars="start_seq=1 end_seq=1" --ask-vault-pass
+ansible-playbook spinup_nodes.yml --extra-vars="start_seq=1 end_seq=1" --ask-vault-pass

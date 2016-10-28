@@ -1,25 +1,15 @@
 ---
-- name: look for Amazon Machine Image
-  ec2_ami_find:
-    region: "{{ region }}"
-    owner: "{{ own }}"
-    ami_tags:
-      project: "{{ tag }}"
-    no_result_action: fail
-  register: ami_find
-
-- debug: msg='{{ ami_find.results[0].ami_id }}'
-
 - name: launch ec2 instances 
   ec2:
     aws_access_key: "{{ec2_access_key}}"
     aws_secret_key: "{{ec2_secret_key}}"
     instance_type: "{{ type }}"
     region: "{{ region }}"
-    image: "{{ ami_find.results[0].ami_id }}"
+    image: "{{ ami }}"
     key_name: "{{ key }}"
     instance_tags:
       Name: "server-{{ item }}.{{ domain }}"
+      project: "{{ Project }}"
     wait: yes
     assign_public_ip: yes
     vpc_subnet_id: "{{ subnet }}"
