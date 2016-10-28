@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {
+    background-image: url("baddog.jpg");
+    background-repeat: repeat-y;
+}
+</style>
+</head>
+<body>
+
+<p><a href="http://linuxexamples.org/">my first page</a></p>
+<font color="white" size="6">I am server "{{ ansible_hostname }}"</font>
+
+</body>
+</html>
