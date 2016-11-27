@@ -1,0 +1,8 @@
+---
+- name: deploy sec group
+  hosts: localhost
+  vars_files:
+   - keypair.yml
+
+  roles:
+  - secGroups
