@@ -53,4 +53,8 @@ Henry Gallo
 
 How to run 
 -----------------
+<<<<<<< HEAD
 ansible-playbook spinup_nodes.yml --extra-vars="start_seq=1 end_seq=1" --ask-vault-pass
+=======
+ansible-playbook spinup_nodes.yml --extra-vars="start_seq=1 end_seq=2 Project=shu" --ask-vault-pass
+>>>>>>> secGroups

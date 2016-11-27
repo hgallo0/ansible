@@ -2,9 +2,24 @@
 - name: add apache software
   yum: name=httpd state=present
 
+<<<<<<< HEAD
 - name: load background image
   copy: src=baddog.jpg dest=/var/www/html/baddog.jpg 
 
+=======
+- name: install perl module
+  yum: name=perl-DBI state=present
+
+- name: install perl mysql module 
+  yum: name=perl-DBD-MySQL state=present
+
+- name: load background image
+  copy: src=baddog.jpg dest=/var/www/html/baddog.jpg 
+
+- name: load cgi template
+  template: src=gateone.cgi dest=/var/www/cgi-bin/gateone.cgi mode=0755
+
+>>>>>>> secGroups
 - name: load config file
   template: src=httpd.conf.js2 dest=/etc/httpd/conf/httpd.conf
   notify:
@@ -15,3 +30,11 @@
 
 - name: start service 
   service: name=httpd state=started
+<<<<<<< HEAD
+=======
+
+- name: allow selinux to run the cgi script with network connect
+  shell: setsebool -P httpd_can_network_connect 1
+
+
+>>>>>>> secGroups
