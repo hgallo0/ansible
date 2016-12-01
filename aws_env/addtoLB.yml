@@ -1,0 +1,26 @@
+---
+- name: create LB
+  hosts: localhost
+
+  vars_files:
+    - keypair.yml
+
+  tasks:
+  - local_action:
+      module: ec2_elb_lb
+      name: "shu-LB"
+      aws_access_key: "{{ec2_access_key}}"
+      aws_secret_key: "{{ec2_secret_key}}"
+      scheme: internet-facing
+      state: present
+      instance_ids:
+        - i-xxxxxxxxxxxxxxxxx
+        - i-xxxxxxxxxxxxxxxxx
+        - i-xxxxxxxxxxxxxxxxx
+      purge_instance_ids: true
+      region: us-east-1
+      subnets: subnet-8037e3ad
+      listeners:
+        - protocol: http # options are http, https, ssl, tcp
+          load_balancer_port: 80
+          instance_port: 80
