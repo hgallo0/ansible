@@ -1,0 +1,8 @@
+---
+- name: removing users
+  hosts: jjay
+  user: hgallo
+  become: yes
+
+  roles:
+    - users

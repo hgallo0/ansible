@@ -1,0 +1,15 @@
+#jjayclass2017:wq
+---
+- name: adding users
+  user: name={{ item }} state=present generate_ssh_key=yes ssh_key_bits=2048 ssh_key_file=.ssh/id_rsa password="{{ password }}"
+  with_items:
+    "{{ users }}"
+  tags:
+    - add
+
+- name: removing users
+  user: name={{ item }} state=absent remove=yes
+  with_items:
+    "{{ users }}"
+  tags:
+    - remove
