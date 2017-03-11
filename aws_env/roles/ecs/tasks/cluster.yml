@@ -1,0 +1,8 @@
+---
+- name: creating ecs cluster
+  ecs_cluster:
+    name: "{{ name }}"
+    state: present
+    region: "{{ region }}"
+    aws_access_key: "{{ec2_access_key}}"
+    aws_secret_key: "{{ec2_secret_key}}"
