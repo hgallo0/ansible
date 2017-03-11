@@ -1,0 +1,9 @@
+---
+- name: create ecs cluster
+  hosts: localhost
+
+  vars_files:
+    - keypair.yml
+
+  roles:
+  - ecs
