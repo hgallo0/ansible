@@ -1,4 +1,0 @@
- vpc:
- reg:
- ssh_cidr:
- mariadb_cidr:

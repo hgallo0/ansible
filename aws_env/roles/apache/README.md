@@ -36,7 +36,3 @@ Author Information
 ------------------
 
 An optional section for the role authors to include contact information, or a website (HTML is not allowed).
-
-how to run 
------------------
-ansible-playbook -i ec2.py mariadb.yml --private-key=shu.pem -e "node=ip-172-31-62-112.ec2.internal pass=cs641"
